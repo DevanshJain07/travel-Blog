@@ -4,7 +4,7 @@ const Footer = () => {
   return (
     <footer>
       <div className="container">
-        <h1>COMPLETE BLOG</h1>
+        <h1>Travel BLOG</h1>
         <p className="copyright-line">
           © Copyright 2019 - All rights reserved.
         </p>

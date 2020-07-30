@@ -24,12 +24,8 @@ const FreshStories = () => {
                 </h2>
                 <ul className="post-tags">
                   <li>3 days ago</li>
-                  <li>
-                    <a href="#">3 comments</a>
-                  </li>
-                  <li>
-                    by <a href="#">John Smith</a>
-                  </li>
+                  <li><a href="#">3 comments</a></li>
+                  <li>by <a href="#">Devansh Jain</a></li>
                 </ul>
                 <p>
                   Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
@@ -58,12 +54,8 @@ const FreshStories = () => {
                 </h2>
                 <ul className="post-tags">
                   <li>3 days ago</li>
-                  <li>
-                    <a href="#">3 comments</a>
-                  </li>
-                  <li>
-                    by <a href="#">John Smith</a>
-                  </li>
+                  <li><a href="#">3 comments</a></li>
+                  <li>by <a href="#">Devansh Jain</a></li>
                 </ul>
                 <p>
                   Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
@@ -92,12 +84,8 @@ const FreshStories = () => {
                 </h2>
                 <ul className="post-tags">
                   <li>3 days ago</li>
-                  <li>
-                    <a href="#">3 comments</a>
-                  </li>
-                  <li>
-                    by <a href="#">John Smith</a>
-                  </li>
+                  <li><a href="#">3 comments</a></li>
+                  <li>by <a href="#">Devansh Jain</a></li>
                 </ul>
                 <p>
                   Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
