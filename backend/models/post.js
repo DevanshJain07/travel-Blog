@@ -16,7 +16,7 @@ const post=mongoose.Schema({
     },
     category:{
         type:ObjectId,
-        required:true
+        ref:"Category"
     }
 })
 

@@ -18,20 +18,16 @@ mongoose.connection.on("error",(error)=>{
     console.log("Error: " + error)
 })
 
-app.get("/",(req,res)=>{
-    res.send('Hello Folks')
-})
-app.get("/home",(req,res)=>{
-    res.send('Home')
-})
+//Models import
+require("./models/category")
+require("./models/post")
 
-app.get("/category",(req,res)=>{
-    res.send('Category')
-})
+app.use(express.json())
 
-app.get("/single",(req,res)=>{
-    res.send('Single')
-})
+//Router import
+app.use(require("./routes/post"))
+app.use(require("./routes/category"))
+
 
 app.listen(PORT,()=>{
     console.log("Server started at "+ PORT)
