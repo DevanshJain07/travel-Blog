@@ -16,10 +16,35 @@ router.get("/posts",(req,res)=>{
     })
 })
 
-router.post("/new-post",(req,res)=>{
-    const {title,description,imageUrl,category}=req.body
+router.get("/trending-posts",(req,res)=>{
+    Post.find()
+    .sort({numOfLikes: -1})
+    .populate("category","_id name")
+    .then((posts)=>{
+        res.json({posts})
+    })
+    .catch((err)=>{
+        console.log(err)
+    })
+})
 
-    if(!title||!description||!imageUrl||!category){
+router.get("/fresh-stories",(req,res)=>{
+    Post.find()
+    .sort({_id: -1})
+    .limit(3)
+    .populate("category","_id name")
+    .then((posts)=>{
+        res.json({posts})
+    })
+    .catch((err)=>{
+        console.log(err)
+    })
+})
+
+router.post("/new-post",(req,res)=>{
+    const {title,description,imageUrl,category,numOfLikes,isFeatured}=req.body
+
+    if(!title||!description||!imageUrl||!category||!numOfLikes||!isFeatured){
         res.json({
             err:"All fields are required"
         })
@@ -28,7 +53,7 @@ router.post("/new-post",(req,res)=>{
     Category.findOne({_id: category.id})
     .then((cate)=>{
         const post=new Post({
-            title,description,imageUrl,category:cate
+            title,description,imageUrl,numOfLikes,category:cate,isFeatured
         })
         post.save()
         .then(()=>{
@@ -43,6 +68,17 @@ router.post("/new-post",(req,res)=>{
     })
 
     
+})
+
+router.get("/featured-posts",(req,res)=>{
+    Post.find({isFeatured:true})
+    .populate("category","_id name")
+    .then((posts)=>{
+        res.json({posts})
+    })
+    .catch((err)=>{
+        console.log(err)
+    })
 })
 
 module.exports = router;
