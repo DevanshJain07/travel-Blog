@@ -17,6 +17,14 @@ const post=mongoose.Schema({
     category:{
         type:ObjectId,
         ref:"Category"
+    },
+    numOfLikes:{
+        type:Number,
+        default:0
+    },
+    isFeatured:{
+        type:Boolean,
+        required:false
     }
 })
 
