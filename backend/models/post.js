@@ -1,4 +1,5 @@
-const mongoose=require('mongoose')
+const mongoose=require('mongoose');
+const { Timestamp } = require('mongodb');
 const {ObjectId}=mongoose.Schema.Types;
 
 const post=mongoose.Schema({
@@ -26,6 +27,11 @@ const post=mongoose.Schema({
         type:Boolean,
         required:false
     }
-})
+},
+{Timestamp:true
+}
+)
+
+post.index({"$**":"text"})
 
 mongoose.model("Post",post)
