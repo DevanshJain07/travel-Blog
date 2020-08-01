@@ -21,12 +21,14 @@ mongoose.connection.on("error",(error)=>{
 //Models import
 require("./models/category")
 require("./models/post")
+require("./models/comment")
 
 app.use(express.json())
 
 //Router import
 app.use(require("./routes/post"))
 app.use(require("./routes/category"))
+app.use(require("./routes/comment"))
 
 
 app.listen(PORT,()=>{

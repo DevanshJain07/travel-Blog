@@ -81,4 +81,43 @@ router.get("/featured-posts",(req,res)=>{
     })
 })
 
+router.get("/posts/category/:catId",(req,res)=>{
+    Post.find({category:{_id:req.params.catId}})
+    .populate("category","_id name")
+    .then((posts)=>{
+        res.json({posts})
+    })
+    .catch((err)=>{
+        console.log(err)
+    })
+})
+
+router.get("/posts/:id", (req, res) => {
+    Post.find({ _id: req.params.id })
+      .populate("category", "_id name")
+      .then((posts) => {
+        res.json({ posts });
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  });
+
+router.get("/search/:str", (req, res) => {
+    const { str } = req.params;
+  
+    if (!str) {
+      res.json({ err: "Nothing is searched!" });
+    }
+  
+    Post.find({ $text: { $search: str } })
+      .then((post) => {
+        res.json({ msg: "Found!", post });
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  });
+
+
 module.exports = router;
