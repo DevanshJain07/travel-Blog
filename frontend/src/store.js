@@ -1,5 +1,5 @@
 import { createStore } from "redux";
-import {reducer} from "./reducers/index";
+import reducer from "./reducers/index";
 
 const initialState = {
   posts: [
@@ -20,7 +20,7 @@ const initialState = {
       },
     },
     {
-      title: "test1",
+      title: "test2",
       description: "description3",
       postedBy: "Devansh",
       category: {
