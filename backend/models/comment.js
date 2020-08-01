@@ -10,6 +10,8 @@ const comment=mongoose.Schema({
         type:ObjectId,
         ref:"Post"
     }
+},
+{Timestamp:true
 })
 
 mongoose.model("Comment",comment)
